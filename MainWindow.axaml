@@ -54,6 +54,14 @@
                        FontSize="16"
                        FontWeight="Medium"
                        HorizontalAlignment="Center" />
+            <TextBlock Text="Historia cykli:"
+                       FontSize="13"
+                       FontWeight="SemiBold"
+                       HorizontalAlignment="Center" />
+            <ListBox x:Name="HistoryList"
+                     Width="340"
+                     MaxHeight="120"
+                     FontSize="12" />
         </StackPanel>
     </Grid>
 </Window>

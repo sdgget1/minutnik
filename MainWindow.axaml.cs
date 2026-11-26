@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Avalonia.Controls;
 using Avalonia.Interactivity;
 using Avalonia.Threading;
@@ -12,6 +13,7 @@ public partial class MainWindow : Window
     private bool _isRunning;
     private bool _isWorkPhase = true;
     private int _cycles;
+    private readonly List<string> _history = new();
 
     public MainWindow()
     {
@@ -70,6 +72,9 @@ public partial class MainWindow : Window
         if (_isWorkPhase)
         {
             _cycles++;
+            _history.Add($"{DateTime.Now:HH:mm} — cykl {_cycles}");
+            HistoryList.ItemsSource = null;
+            HistoryList.ItemsSource = _history;
             _isWorkPhase = false;
             _remaining = GetPhaseDuration(isWork: false);
             UpdateDisplay();
